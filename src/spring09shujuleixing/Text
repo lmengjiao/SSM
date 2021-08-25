@@ -1,0 +1,4 @@
+常用数据类型的注入 string int 集合（list set map properties）
+用xml方式注入
+
+el表达式 ${}
