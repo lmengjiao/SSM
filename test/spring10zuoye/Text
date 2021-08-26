@@ -1,0 +1,13 @@
+作业:  1.   练习spring的赋值 和依赖.
+1)  新建一个  学生类,  属性为 常用类的   使用2 种方式   赋值
+2) 预习注解, 提问什么是注解?  你见过或者 用过的注解有哪些?
+     @Component  作用：创建简单对象
+    @Repository  作用：创建Dao接口的实现类对象
+    @Autowired  作用：自动为属性做对应的注入（前提：spring工厂已经拥有该属性值）
+     @Service 作用：创建Service接口的实现类对象
+    @Transactional 作用：给某一个方法添加对应的事务，并且可以描述事务的属性
+    @Test 作用 测试类
+    @Controller 作用：指定控制器类
+    @RequestMapping 作用：工作空间
+
+3) 新建2个类  一个 键盘   一个 cpu  使用xml 写出他们之间的依赖

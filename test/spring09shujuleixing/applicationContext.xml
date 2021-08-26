@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd"
+>
+    <!--赋值-->
+    <bean id="teacher" class="spring09shujuleixing.Teacher">
+        <property name="name" value="谢欣"></property>
+        <property name="age" value="18"></property>
+        <property name="friendName">
+            <list>
+                <value>富贵</value>
+                <value>大胖</value>
+                <value>小白</value>
+            </list>
+        </property>
+        <property name="loverName">
+            <set>
+                <value>王一博</value>
+                <value>余庆伟</value>
+                <value>林甜甜</value>
+            </set>
+        </property>
+        <property name="score">
+            <map>
+                <entry key="java" value="98"></entry>
+                <entry key="jquery" value="120"></entry>
+                <entry key="mysql" value="100"></entry>
+            </map>
+        </property>
+        <property name="db">
+            <props>
+                <prop key="username">甜甜</prop>
+                <prop key="pass">qwq</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--取值 也就是读取-->
+        <!--读取properties-->
+        <util:properties id="db" location="classpath:spring09shujuleixing/db.properties"></util:properties>
+    <bean id="teacherEl" class="spring09shujuleixing.TeacherEl">
+        <property name="name" value="#{teacher.name}"></property>
+        <property name="age" value="#{teacher.age}"></property>
+        <property name="loverName" value="#{teacher.loverName[0]}"></property>
+        <property name="friendName" value="#{teacher.friendName[0]}"></property>
+        <property name="score" value="#{teacher.score['jquery']}"></property>
+        <!--<property name="db" value="#{db['username']}"></property>-->
+        <property name="db" value="#{db.username}"></property>
+    </bean>
+</beans>

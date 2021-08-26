@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd"
+>
+    <!--第一种赋值方式-->
+    <!--<bean id="student" class="spring10zuoye.Student">-->
+        <!--<property name="name" value="林甜甜"></property>-->
+        <!--<property name="age" value="20"></property>-->
+        <!--<property name="friend">-->
+            <!--<list>-->
+                <!--<value>世纪仔</value>-->
+                <!--<value>雪蛋</value>-->
+            <!--</list>-->
+        <!--</property>-->
+        <!--<property name="lover">-->
+            <!--<set>-->
+                <!--<value>王一博</value>-->
+                <!--<value>余庆伟</value>-->
+            <!--</set>-->
+        <!--</property>-->
+        <!--<property name="score">-->
+            <!--<map>-->
+                <!--<entry key="语文" value="120"></entry>-->
+                <!--<entry key="数学" value="20"></entry>-->
+                <!--<entry key="英语" value="60"></entry>-->
+            <!--</map>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--第二种赋值-->
+    <!--<util:list id="friend">-->
+        <!--<value>世纪仔</value>-->
+        <!--<value>雪蛋</value>-->
+    <!--</util:list>-->
+    <!--<util:set id="lover">-->
+        <!--<value>余庆伟</value>-->
+        <!--<value>耶啵</value>-->
+    <!--</util:set>-->
+    <!--<util:map id="score">-->
+        <!--<entry key="mysql" value="99"></entry>-->
+        <!--<entry key="java" value="80"></entry>-->
+    <!--</util:map>-->
+    <!--<bean id="student" class="spring10zuoye.Student">-->
+        <!--<property name="name" value="甜甜"></property>-->
+        <!--<property name="age" value="18"></property>-->
+        <!--<property name="friend" ref="friend"></property>-->
+        <!--<property name="lover" ref="lover"></property>-->
+        <!--<property name="score" ref="score"></property>-->
+    <!--</bean>-->
+
+    <!--依赖关系-->
+    <!--属性注入-->
+    <!--<bean id="keyboard" class="spring10zuoye.Keyboard"></bean>-->
+    <!--<bean id="cpu" class="spring10zuoye.Cpu">-->
+        <!--<property name="keyboard" ref="keyboard"></property>-->
+    <!--</bean>-->
+
+    <!--构造注入-->
+    <!--<bean id="keyboard" class="spring10zuoye.Keyboard"></bean>-->
+    <!--<bean id="cpu" class="spring10zuoye.Cpu">-->
+        <!--<constructor-arg index="0" ref="keyboard"></constructor-arg>-->
+    <!--</bean>-->
+
+    <!--自动注入-->
+    <bean id="keyboard" class="spring10zuoye.Keyboard"></bean>
+    <bean id="cpu" class="spring10zuoye.Cpu" autowire="byName"></bean>
+</beans>
